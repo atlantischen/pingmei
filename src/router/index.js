@@ -129,6 +129,16 @@ const routes = [
 					},
 				],
 			},
+			{
+				path: '/cutt',
+				name: 'cutt',
+				component: () => import('@/components/Cutt/index'),
+				// children:[
+				// 	{
+
+				// 	}
+				// ]
+			},
 		],
 	},
 ]

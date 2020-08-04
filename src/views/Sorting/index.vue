@@ -171,7 +171,6 @@ export default {
     border-bottom: 1px solid #104e71;
     .tab_lists {
       height: 10%;
-      border-top: 1px solid #104e71;
       padding-top: 0.1rem;
       box-sizing: border-box;
       display: flex;
@@ -191,9 +190,8 @@ export default {
     }
     .content {
       height: 90%;
-      padding: .3rem 0;
+      padding: 0.3rem 0;
       box-sizing: border-box;
-   
     }
   }
   .footer {
