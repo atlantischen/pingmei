@@ -75,7 +75,12 @@ export default {
           },
           axisTick: {
             show: false
-          }
+          },
+             splitLine:{
+
+                show:false
+
+            }
         }
       ],
       series: [

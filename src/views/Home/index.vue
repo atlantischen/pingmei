@@ -5,7 +5,7 @@
         <li
           class="item"
           :class="selectIndex ==item.id?'active':''"
-          @click="handleSelect(item.id,item.path,item.title)"
+          @click="handleSelect(item.path)"
           v-for="item in dataLists"
           :key="item.id"
         >{{item.title}}</li>
@@ -32,13 +32,13 @@ export default {
         { title: "负极涂布", path: "/coating", id: 4 },
         { title: "焊接封装", path: "/package/cultures", id: 5 },
         { title: "检测", path: "/test/culture", id: 6 },
-        { title: "切叠CCD", path: "/cutt", id: 7 },
-        { title: "三车间看板", path: "/workshop ", id: 8 },
+        { title: "切叠CCD", path: "/cutt/cuttingstack", id: 7 },
+        {title:"三车间看板",path:"/workshop",id:8},
         { title: "线边仓", path: "/line", id: 9 },
         { title: "正极辊轧分切", path: "/negativeSlitting", id: 10 },
         { title: "正极搅拌", path: "/negativeStir", id: 11 },
         { title: "正极涂布", path: "/negativeCoating", id: 12 },
-        { title: "注液", path: "/injection", id: 13 }
+        { title: "注液", path: "/injection/capacity", id: 13 }
       ],
       totalList: [
         {
@@ -68,21 +68,20 @@ export default {
     // 监听路由的变化
     $route: {
       handler(to) {
-  
         for (let item of this.dataLists) {
           if (item.path === to.path) {
             this.selectIndex = item.id;
-            console.log(this.selectIndex);
             this.title = item.title;
           }
         }
+        console.log(this.selectIndex);
       },
       immediate: true
     }
   },
   methods: {
     // 点击侧边栏跳转
-    handleSelect(id, path, title) {
+    handleSelect(path) {
       this.$router.push(`${path}`);
 
     },

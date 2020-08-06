@@ -76,7 +76,6 @@ const routes = [
 				name: 'Package',
 				component: () => import('@/components/Package/index'),
 				redirect: '/package/cultures',
-
 				children: [
 					{
 						path: '/package/cultures',
@@ -133,11 +132,47 @@ const routes = [
 				path: '/cutt',
 				name: 'cutt',
 				component: () => import('@/components/Cutt/index'),
-				// children:[
-				// 	{
-
-				// 	}
-				// ]
+				redirect: '/cutt/cuttingstack',
+				children: [
+					{
+						path: '/cutt/cuttingstack',
+						name: 'CuttingStack',
+						component: () => import('@/components/Cutt/CuttingStack'),
+					},
+					{
+						path: '/cutt/statistics',
+						name: 'Statistics',
+						component: () => import('@/components/Cutt/Statistics'),
+					},
+				],
+			},
+			{
+				path: '/workshop',
+				name: 'Workshop',
+				component: () => import('@/components/Workshop/index'),
+			},
+			{
+				path: '/line',
+				name: 'Line',
+				component: () => import('@/components/Line/index'),
+			},
+			{
+				path: '/injection',
+				name: 'Injection',
+				component: () => import('@/components/Injection/index'),
+				redirect: '/injection/capacity',
+				children: [
+					{
+						path: '/injection/capacity',
+						name: 'Capacity',
+						component: () => import('@/components/Injection/Capacity'),
+					},
+					{
+						path: '/injection/inject01',
+						name: 'Inject01',
+						component: () => import('@/components/Injection/Inject01'),
+					},
+				],
 			},
 		],
 	},

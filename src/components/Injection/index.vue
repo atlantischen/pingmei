@@ -21,17 +21,17 @@ export default {
   data() {
     return {
       selectIndex: 1,
-      tabList:[
-          { title: "切叠看板", path: "/cutt/cuttingstack", id: 1 },
-          { title: "不良统计看板", path: "/cutt/statistics", id: 2 },
+      tabList: [
+        { title: "注液生产产能看板", path: "/injection/capacity", id: 1 },
+        { title: "注液Inject01设备看板", path: "/injection/inject01", id: 2 }
       ]
     };
   },
   methods: {
+    //  点击跳转
     tabChange(path) {
-      console.log(this.selectIndex);
       this.$router.push(`${path}`);
-
+      
     }
   },
   watch: {
@@ -39,6 +39,7 @@ export default {
     $route: {
       handler(to) {
         for (let item of this.tabList) {
+            console.log(item.path, to.path);
           if (item.path === to.path) this.selectIndex = item.id;
         }
       },
@@ -76,8 +77,6 @@ export default {
   }
   .content {
     height: 95%;
-   
-   
   }
 }
 </style>

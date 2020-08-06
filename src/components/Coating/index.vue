@@ -47,7 +47,7 @@ export default {};
         background-image: url("../../assets/image/pingmei_bg_12_1.png");
         background-repeat: no-repeat;
         background-size: 100% 100%;
-        padding: 0.2rem 0.2rem 0.4rem;
+        padding: 0.2rem;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;

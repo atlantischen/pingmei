@@ -3,7 +3,9 @@
     <div class="header">
       <ul class="total">
         <li class="total_list" v-for="item in totalList" :key="item.title">
-          <div class="total_list_title">{{item.title}}</div>
+          <div class="total_list_title">
+            <span>{{item.title}}</span>
+            </div>
           <div class="total_lists">
             <span class="total_num">{{item.num}}</span>
             <div class="tital_icon" :style="{backgroundImage:'url(' + item.icon+ ')'}"></div>
@@ -128,6 +130,9 @@ export default {
           box-sizing: border-box;
           color: #fff;
           font-weight: bold;
+          display: flex;
+          align-items: center;
+         
         }
         .total_lists {
           flex: 1;
