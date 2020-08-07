@@ -20,39 +20,44 @@ const routes = [
 		path: '/home',
 		name: 'Home',
 		component: () => import('@/views/Home'),
-		redirect: '/sorting/culture',
+		redirect: '/sorting/enterprise',
 		children: [
 			{
 				path: '/sorting',
 				name: 'Sorting',
-				component: () => import('@/views/Sorting'),
+				component: () => import('@/components/Sorting/index'),
+				redirect: '/sorting/enterprise',
 				children: [
 					{
-						path: '/sorting/culture',
-						name: 'Culture',
-						component: () => import('@/components/Sorting/Culture'),
+						path: '/sorting/enterprise',
+						name: 'Enterprise',
+						component: () => import('@/components/Sorting/Enterprise'),
 					},
 					{
-						path: '/sorting/dbturn',
-						name: 'DBTurn',
-						component: () => import('@/components/Sorting/DBTurn'),
+						path: '/sorting/choice',
+						name: 'Choice',
+						component: () => import('@/components/Sorting/Choice'),
 					},
 					{
-						path: '/sorting/power',
-						name: 'Power',
+						path: '/sorting/ocv1',
+						name: 'OCV1',
 
-						component: () => import('@/components/Sorting/Power'),
+						component: () => import('@/components/Sorting/OCV1'),
 					},
 					{
-						path: '/sorting/turn',
-						name: 'Turn',
-
-						component: () => import('@/components/Sorting/Turn'),
+						path: '/sorting/ocv2',
+						name: 'OCV2',
+						component: () => import('@/components/Sorting/OCV2'),
 					},
 					{
-						path: '/sorting/volume',
-						name: 'Volume',
-						component: () => import('@/components/Sorting/Volume'),
+						path: '/sorting/ocv3',
+						name: 'OCV3',
+						component: () => import('@/components/Sorting/OCV3'),
+					},
+					{
+						path: '/sorting/bad',
+						name: 'Bad',
+						component: () => import('@/components/Sorting/Bad'),
 					},
 				],
 			},
@@ -98,6 +103,8 @@ const routes = [
 				path: '/test',
 				name: 'Test',
 				component: () => import('@/components/Test/index'),
+				redirect: '/test/culture',
+
 				children: [
 					{
 						path: '/test/culture',
@@ -173,6 +180,21 @@ const routes = [
 						component: () => import('@/components/Injection/Inject01'),
 					},
 				],
+			},
+			{
+				path: '/negativeSlitting',
+				name: 'NegativeSlitting',
+				component: () => import('@/components/NegativeSlitting/index'),
+			},
+			{
+				path: '/negativeStir',
+				name: 'NegativeStir',
+				component: () => import('@/components/NegativeStir/index'),
+			},
+			{
+				path: '/negativeCoating',
+				name: 'NegativeCoating',
+				component: () => import('@/components/NegativeCoating/index'),
 			},
 		],
 	},

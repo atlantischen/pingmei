@@ -3,7 +3,9 @@
     <div class="header">
       <ul class="total">
         <li class="total_list" v-for="item in totalList" :key="item.title">
-          <div class="total_list_title">{{item.title}}</div>
+          <div class="total_list_title">
+            <span>{{item.title}}</span>
+          </div>
           <div class="total_lists">
             <span class="total_num">{{item.num}}</span>
             <div class="tital_icon" :style="{backgroundImage:'url(' + item.icon+ ')'}"></div>
@@ -67,11 +69,12 @@ export default {
         }
       ],
       tabList: [
-        { title: "企业文化", path: "/sorting/culture", id: 1 },
-        { title: "化成统计信息", path: "/sorting/volume", id: 2 },
-        { title: "分容统计信息", path: "/sorting/turn", id: 3 },
-        { title: "二次分容统计信息", path: "/sorting/dbturn", id: 4 },
-        { title: "核电统计信息", path: "/sorting/power", id: 5 }
+        { title: "企业文化", path: "/sorting/enterprise", id: 1 },
+        { title: "分选", path: "/sorting/choice", id: 2 },
+        { title: "OVC1", path: "/sorting/ocv1", id: 3 },
+        { title: "OVC2", path: "/sorting/ocv2", id: 4 },
+        { title: "OVC3", path: "/sorting/ocv3", id: 5 },
+        { title: "不良图片", path: "/sorting/bad", id: 6 }
       ]
     };
   },
@@ -128,6 +131,8 @@ export default {
           box-sizing: border-box;
           color: #fff;
           font-weight: bold;
+          display: flex;
+          align-items: center;
         }
         .total_lists {
           flex: 1;
@@ -190,8 +195,8 @@ export default {
     }
     .content {
       height: 90%;
-      padding: 0.3rem 0;
-      box-sizing: border-box;
+      // padding-bottom: 0.3rem;
+      // box-sizing: border-box;
     }
   }
   .footer {

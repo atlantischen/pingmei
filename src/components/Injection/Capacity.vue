@@ -119,7 +119,6 @@ export default {
               textStyle: {
                 //改变刻度字体样式
                 color: "#fff",
-                fontSize: 16,
               },
               // 当文字长度大于4用省略号表示
               // formatter: function(value) {

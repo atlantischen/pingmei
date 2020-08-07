@@ -1,42 +1,38 @@
 <template>
-  <div class="warpper">
-    <div id="myCharts" ref="myCharts"></div>
-  </div>
+  <div id="myCharts" ref="myCharts"></div>
 </template>
 
 <script>
+// import echarts from 'echarts'
 export default {
-  data() {
-    return {};
-  },
-  methods:{
-    drawEcharts() {
+methods: {
+     drawEcharts() {
       const myCharts = this.$echarts.init(this.$refs.myCharts);
       let doc = document.getElementById("myCharts");
-      let listener = function () {
+      let listener = function() {
         myCharts.resize();
       };
       this.$EleResize.on(doc, listener); //调用EleResize.on方法处理echarts响应式
       let option = {
         title: {
-          text: "焊接良率统计", //标题
+          text: "OCV3良率统计", //标题
           textStyle: {
-            color: "#fff",
-          },
+            color: "#fff"
+          }
         },
         tooltip: {
           trigger: "axis",
           axisPointer: {
             // 坐标轴指示器，坐标轴触发有效
-            type: "none", // 默认为直线，可选为：'line' | 'shadow'
-          },
+            type: "" // 默认为直线，可选为：'line' | 'shadow'
+          }
         },
         grid: {
           //修改位置
           left: "3%",
           right: "3%",
           bottom: "3%",
-          containLabel: true,
+          containLabel: true
         },
         xAxis: [
           {
@@ -49,32 +45,34 @@ export default {
               "2020-07-15",
               "2020-07-15",
               "2020-07-15",
-             
+              
             ],
             axisPointer: {
-              type: "none",
+              type: "none"
             },
             axisLine: {
               lineStyle: {
-                color: "#55708E",
-              },
+                color: "#55708E"
+              }
             },
             axisTick: {
               //隐藏刻度线
-              show: false,
+              show: false
             },
             axisLabel: {
               //改变X轴文字样式
               interval: 0,
               textStyle: {
                 //改变刻度字体样式
-                color: "#fff",
+                color: "#fff"
               },
               // 当文字长度大于4用省略号表示
-              formatter:"{value}"
+              // formatter: function(value) {
+              //   return value.length > 4 ? value.slice(0, 4) + "..." : value;
+              // }
             },
-            triggerEvent: false, // 设置为true后，可触发事件。实现x轴文字过长，显示省略号，hover上去显示全部的功能
-          },
+            triggerEvent: false // 设置为true后，可触发事件。实现x轴文字过长，显示省略号，hover上去显示全部的功能
+          }
         ],
         yAxis: [
           {
@@ -84,24 +82,24 @@ export default {
             max: 12000,
             interval: 3000,
             axisLabel: {
-              formatter: "{value}",
+              formatter: "{value}"
             },
             axisLine: {
               show: false,
               lineStyle: {
-                color: "#fff",
-              },
+                color: "#fff"
+              }
             },
             splitLine: {
               lineStyle: {
                 // 使用深浅的间隔色
                 type: "dashed",
-                color: "#284E70",
-              },
+                color: "#284E70"
+              }
             },
             axisTick: {
-              show: false,
-            },
+              show: false
+            }
           },
 
           {
@@ -111,25 +109,25 @@ export default {
             max: 100,
             interval: 25,
             axisLabel: {
-              formatter: "{value} %",
+              formatter: "{value} %"
             },
             axisLine: {
               show: false,
               lineStyle: {
-                color: "#fff",
-              },
+                color: "#fff"
+              }
             },
             splitLine: {
               lineStyle: {
                 // 使用深浅的间隔色
                 type: "dashed",
-                color: "#284E70",
-              },
+                color: "#284E70"
+              }
             },
             axisTick: {
-              show: false,
-            },
-          },
+              show: false
+            }
+          }
         ],
         series: [
           {
@@ -142,14 +140,14 @@ export default {
                 color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
                   {
                     offset: 0,
-                    color: "#126DAF",
+                    color: "#126DAF"
                   },
                   {
                     offset: 1,
-                    color: "#104372",
-                  },
-                ]),
-              },
+                    color: "#104372"
+                  }
+                ])
+              }
             },
             data: [
               2600,
@@ -159,8 +157,9 @@ export default {
               2870,
               707,
               1756,
-             
-            ],
+              1756,
+              
+            ]
           },
           {
             name: "不良品数量",
@@ -172,14 +171,14 @@ export default {
                 color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
                   {
                     offset: 0,
-                    color: "#126DAF",
+                    color: "#126DAF"
                   },
                   {
                     offset: 1,
-                    color: "#14628B",
-                  },
-                ]),
-              },
+                    color: "#14628B"
+                  }
+                ])
+              }
             },
             data: [
               3200,
@@ -189,8 +188,9 @@ export default {
               3900,
               3300,
               3200,
+              3200,
              
-            ],
+            ]
           },
           {
             name: "良品率",
@@ -200,9 +200,9 @@ export default {
               normal: {
                 color: "#FCC102", //改变折线点的颜色
                 lineStyle: {
-                  color: "#FCC102", //改变折线颜色
-                },
-              },
+                  color: "#FCC102" //改变折线颜色
+                }
+              }
             },
             data: [
               20,
@@ -212,27 +212,32 @@ export default {
               63,
               10.2,
               20.3,
-              
-            ],
-          },
-        ],
+              20,
+              22,
+              33,
+              45,
+              63,
+              10.2,
+              20.3,
+              40,
+              89
+            ]
+          }
+        ]
       };
+
       myCharts.setOption(option);
-    },
+    }
   },
   mounted() {
-    this.drawEcharts();
-  },
+    this.drawEcharts()   
+  }
 };
 </script>
 
 <style lang="less" scoped>
-.warpper {
+#myCharts {
   width: 100%;
   height: 100%;
-  #myCharts {
-    width: 100%;
-    height: 100%;
-  }
 }
 </style>

@@ -428,4 +428,4 @@ export default {
     }
   }
 }
-</style>
+</style>  

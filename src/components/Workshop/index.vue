@@ -3,7 +3,7 @@
     <div class="header">
       <ul class="total">
         <li class="total_list" v-for="item in totalList" :key="item.title">
-          <div class="total_list_title">{{item.title}}</div>
+          <div class="total_list_title"><span>{{item.title}}</span></div>
           <div class="total_lists">
             <span class="total_num">{{item.num}}</span>
             <div class="tital_icon" :style="{backgroundImage:'url(' + item.icon+ ')'}"></div>
@@ -57,37 +57,37 @@ export default {
         {
           title: "分选工单号",
           num: 250,
-          icon: require("../../assets/image/pingmei_icon3.png")
+          icon: require("../../assets/image/pingmei_icon3.png"),
         },
         {
           title: "分选工单类型",
           num: 500,
-          icon: require("../../assets/image/pingmei_icon3.png")
+          icon: require("../../assets/image/pingmei_icon3.png"),
         },
         {
           title: "分选工单数量",
           num: 250,
-          icon: require("../../assets/image/pingmei_icon3.png")
+          icon: require("../../assets/image/pingmei_icon3.png"),
         },
         {
           title: "分选工单计划数量",
           num: 250,
-          icon: require("../../assets/image/pingmei_icon3.png")
-        }
-      ]
+          icon: require("../../assets/image/pingmei_icon3.png"),
+        },
+      ],
     };
   },
   methods: {
     drawEcharts() {
       const myChart = this.$echarts.init(this.$refs.myChart);
       let doc = document.getElementById("myChart");
-      let listener = function() {
+      let listener = function () {
         myChart.resize();
       };
       this.$EleResize.on(doc, listener); //调用EleResize.on方法处理echarts响应式
       let option = {
         tooltip: {
-          show: false
+          show: false,
         },
         series: [
           {
@@ -98,32 +98,32 @@ export default {
             hoverAnimation: false,
             label: {
               show: false,
-              position: "center"
+              position: "center",
             },
             emphasis: {
               label: {
                 show: true,
                 fontSize: "24",
-                fontWeight: "bold"
-              }
+                fontWeight: "bold",
+              },
             },
             itemStyle: {
               show: false,
               borderColor: "#30537F",
-              borderWidth: 3
+              borderWidth: 3,
             },
             labelLine: {
-              show: false
+              show: false,
             },
             data: [
               { value: 335, name: "开机" },
               { value: 310, name: "生产" },
               { value: 234, name: "待料" },
               { value: 135, name: "故障" },
-              { value: 1548, name: "关机" }
-            ]
-          }
-        ]
+              { value: 1548, name: "关机" },
+            ],
+          },
+        ],
       };
 
       myChart.setOption(option);
@@ -131,7 +131,7 @@ export default {
     drawEcharts1() {
       const myChart1 = this.$echarts.init(this.$refs.myChart1);
       let doc = document.getElementById("myChart1");
-      let listener = function() {
+      let listener = function () {
         myChart1.resize();
       };
       this.$EleResize.on(doc, listener); //调用EleResize.on方法处理echarts响应式
@@ -139,22 +139,22 @@ export default {
         title: {
           text: "焊接良率统计", //标题
           textStyle: {
-            color: "#fff"
-          }
+            color: "#fff",
+          },
         },
         tooltip: {
           trigger: "axis",
           axisPointer: {
             // 坐标轴指示器，坐标轴触发有效
-            type: "" // 默认为直线，可选为：'line' | 'shadow'
-          }
+            type: "", // 默认为直线，可选为：'line' | 'shadow'
+          },
         },
         grid: {
           //修改位置
           left: "3%",
           right: "3%",
           bottom: "3%",
-          containLabel: true
+          containLabel: true,
         },
         xAxis: [
           {
@@ -175,34 +175,34 @@ export default {
               "2020-07-15",
               "2020-07-15",
               "2020-07-15",
-              "2020-07-15"
+              "2020-07-15",
             ],
             axisPointer: {
-              type: "shadow"
+              type: "shadow",
             },
             axisLine: {
               lineStyle: {
-                color: "#55708E"
-              }
+                color: "#55708E",
+              },
             },
             axisTick: {
               //隐藏刻度线
-              show: false
+              show: false,
             },
             axisLabel: {
               //改变X轴文字样式
               interval: 0,
               textStyle: {
                 //改变刻度字体样式
-                color: "#fff"
+                color: "#fff",
               },
               // 当文字长度大于4用省略号表示
-              formatter: function(value) {
+              formatter: function (value) {
                 return value.length > 4 ? value.slice(0, 4) + "..." : value;
-              }
+              },
             },
-            triggerEvent: false // 设置为true后，可触发事件。实现x轴文字过长，显示省略号，hover上去显示全部的功能
-          }
+            triggerEvent: false, // 设置为true后，可触发事件。实现x轴文字过长，显示省略号，hover上去显示全部的功能
+          },
         ],
         yAxis: [
           {
@@ -212,24 +212,24 @@ export default {
             max: 12000,
             interval: 3000,
             axisLabel: {
-              formatter: "{value}"
+              formatter: "{value}",
             },
             axisLine: {
               show: false,
               lineStyle: {
-                color: "#fff"
-              }
+                color: "#fff",
+              },
             },
             splitLine: {
               lineStyle: {
                 // 使用深浅的间隔色
                 type: "dashed",
-                color: "#284E70"
-              }
+                color: "#284E70",
+              },
             },
             axisTick: {
-              show: false
-            }
+              show: false,
+            },
           },
 
           {
@@ -239,25 +239,25 @@ export default {
             max: 100,
             interval: 25,
             axisLabel: {
-              formatter: "{value} %"
+              formatter: "{value} %",
             },
             axisLine: {
               show: false,
               lineStyle: {
-                color: "#fff"
-              }
+                color: "#fff",
+              },
             },
             splitLine: {
               lineStyle: {
                 // 使用深浅的间隔色
                 type: "dashed",
-                color: "#284E70"
-              }
+                color: "#284E70",
+              },
             },
             axisTick: {
-              show: false
-            }
-          }
+              show: false,
+            },
+          },
         ],
         series: [
           {
@@ -270,14 +270,14 @@ export default {
                 color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
                   {
                     offset: 0,
-                    color: "#126DAF"
+                    color: "#126DAF",
                   },
                   {
                     offset: 1,
-                    color: "#104372"
-                  }
-                ])
-              }
+                    color: "#104372",
+                  },
+                ]),
+              },
             },
             data: [
               2600,
@@ -295,8 +295,8 @@ export default {
               707,
               1756,
               707,
-              1756
-            ]
+              1756,
+            ],
           },
           {
             name: "不良品数量",
@@ -308,14 +308,14 @@ export default {
                 color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
                   {
                     offset: 0,
-                    color: "#126DAF"
+                    color: "#126DAF",
                   },
                   {
                     offset: 1,
-                    color: "#14628B"
-                  }
-                ])
-              }
+                    color: "#14628B",
+                  },
+                ]),
+              },
             },
             data: [
               3200,
@@ -333,8 +333,8 @@ export default {
               3300,
               3200,
               5000,
-              9000
-            ]
+              9000,
+            ],
           },
           {
             name: "良品率",
@@ -344,9 +344,9 @@ export default {
               normal: {
                 color: "#FCC102", //改变折线点的颜色
                 lineStyle: {
-                  color: "#FCC102" //改变折线颜色
-                }
-              }
+                  color: "#FCC102", //改变折线颜色
+                },
+              },
             },
             data: [
               20,
@@ -364,19 +364,19 @@ export default {
               10.2,
               20.3,
               40,
-              89
-            ]
-          }
-        ]
+              89,
+            ],
+          },
+        ],
       };
 
       myChart1.setOption(option);
-    }
+    },
   },
   mounted() {
     this.drawEcharts();
     this.drawEcharts1();
-  }
+  },
 };
 </script>
 
@@ -416,6 +416,8 @@ export default {
           box-sizing: border-box;
           color: #fff;
           font-weight: bold;
+          display: flex;
+          align-items: center;
         }
         .total_lists {
           flex: 1;
